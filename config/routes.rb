@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  resources :tickets
+  resources :tickets do
+    collection do
+      get 'search'
+    end
+  end
 
   root 'static_pages#home'  
   get 'static_pages/home'

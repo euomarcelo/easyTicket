@@ -1,33 +1,55 @@
-<%= form_for(@ticket) do |f| %>
-  <% if @ticket.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@ticket.errors.count, "error") %> prohibited this ticket from being saved:</h2>
+<%= form_for @ticket, :html => { :class => "form-horizontal ticket" } do |f| %>
 
-      <ul>
-      <% @ticket.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+  <% if @ticket.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@ticket.errors.count, "error") %> prohibited this ticket from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @ticket.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :user_id %><br>
-    <%= f.number_field :user_id %>
+  <div class="form-group">
+    <%= f.label :user_id, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :user_id, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:user_id) %>
   </div>
-  <div class="field">
-    <%= f.label :event_name %><br>
-    <%= f.text_field :event_name %>
+  <div class="form-group">
+    <%= f.label :event_name, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :event_name, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:event_name) %>
   </div>
-  <div class="field">
-    <%= f.label :event_date %><br>
-    <%= f.date_select :event_date %>
+  <div class="form-group">
+    <%= f.label :event_date, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :event_date, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:event_date) %>
   </div>
-  <div class="field">
-    <%= f.label :event_description %><br>
-    <%= f.text_area :event_description %>
+  <div class="form-group">
+    <%= f.label :event_description, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :event_description, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:event_description) %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+
+  <div class="form-group">
+    <div class="col-lg-offset-2 col-lg-10">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                tickets_path, :class => 'btn btn-default' %>
+    </div>
   </div>
+
 <% end %>

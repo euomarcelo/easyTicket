@@ -35,6 +35,14 @@ class TicketsController < ApplicationController
     @ticket.destroy
     respond_with(@ticket)
   end
+  
+  def search
+    @tickets = Ticket.search(params['name'])
+    respond_with(@tickets) do |format|
+      format.html { render :action => :index }
+    end
+    
+  end
 
   private
     def set_ticket

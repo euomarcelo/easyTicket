@@ -205,10 +205,21 @@ pt-BR:
       short: "%d de %B, %H:%M"
     pm: ''
   activerecord:
+    models:
+      user:
+        one: Usuário(a)
+        other: Usuários(as)
+      ticket:
+        one: Ingresso
+        other: Ingressos
     attributes:
       user:
         email: 'Email'
         password: 'Senha'
         password_confirmation: 'Repita a senha'
         remember_me: 'Lembrar-me'
-        
+      ticket:
+        user_id: Id do usuário
+        event_name: Nome do evento
+        event_date: Data
+        event_description: Descrição 
