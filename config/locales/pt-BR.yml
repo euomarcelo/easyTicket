@@ -204,3 +204,11 @@ pt-BR:
       long: "%d de %B de %Y, %H:%M"
       short: "%d de %B, %H:%M"
     pm: ''
+  activerecord:
+    attributes:
+      user:
+        email: 'Email'
+        password: 'Senha'
+        password_confirmation: 'Repita a senha'
+        remember_me: 'Lembrar-me'
+        
