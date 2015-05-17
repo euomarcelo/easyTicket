@@ -31,7 +31,7 @@ gem "devise"
 # to use twitter bootstrap and less
 gem "therubyracer"
 gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
-gem "twitter-bootstrap-rails"
+gem 'twitter-bootstrap-rails', '~> 3.2.1', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
 
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
