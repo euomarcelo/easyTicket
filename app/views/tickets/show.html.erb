@@ -18,7 +18,7 @@
   <dd><%= @ticket.price %></dd>
 </dl>
 
-<%= link_to "Comprar", buy_ticket_path(@ticket) %>
+<%= link_to "Comprar", buy_ticket_path(@ticket), :class => 'btn btn-default' %>
 <%= link_to t('.back', :default => t("helpers.links.back")),
               tickets_path, :class => 'btn btn-default'  %>
 <%= link_to t('.edit', :default => t("helpers.links.edit")),

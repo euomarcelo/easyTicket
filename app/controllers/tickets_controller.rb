@@ -38,7 +38,7 @@ class TicketsController < ApplicationController
   
   def buy
     @ticket.update_attribute(:active, false)
-    current_user.decrement(:balance, 20)
+    current_user.decrement(:balance, @ticket.price)
     current_user.save
   end
   
@@ -56,6 +56,6 @@ class TicketsController < ApplicationController
     end
 
     def ticket_params
-      params.require(:ticket).permit(:user_id, :event_name, :event_date, :event_description, :active)
+      params.require(:ticket).permit(:user_id, :event_name, :event_date, :event_description, :active, :price)
     end
 end
