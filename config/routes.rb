@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   resources :tickets do
+    member do
+      get 'buy'
+    end
     collection do
       get 'search'
     end

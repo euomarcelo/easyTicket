@@ -13,3 +13,34 @@
  *= require_tree .
  *= require_self
  */
+body {
+    margin: 0;
+}
+ 
+.navbar-static-top {
+  background-color: #085394;
+  padding: 10px;
+}
+
+.logo {
+    float: left;
+    margin: 5px 10px 0;
+}
+
+.logo a {
+    color: #00FFFF;
+    font-weight: bold;
+    text-decoration: none;
+    font-family: cursive;
+}
+
+.search-bar-top {
+    float: left;
+}
+
+.search-bar-top input {
+    float: left;
+    height: 22px;
+    opacity: 0.25;
+    width: 550px;
+}

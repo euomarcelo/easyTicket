@@ -1,5 +1,5 @@
 class TicketsController < ApplicationController
-  before_action :set_ticket, only: [:show, :edit, :update, :destroy]
+  before_action :set_ticket, only: [:show, :edit, :update, :destroy, :buy]
 
   respond_to :html
 
@@ -36,6 +36,12 @@ class TicketsController < ApplicationController
     respond_with(@ticket)
   end
   
+  def buy
+    @ticket.update_attribute(:active, false)
+    current_user.decrement(:balance, 20)
+    current_user.save
+  end
+  
   def search
     @tickets = Ticket.search(params['name'])
     respond_with(@tickets) do |format|
@@ -50,6 +56,6 @@ class TicketsController < ApplicationController
     end
 
     def ticket_params
-      params.require(:ticket).permit(:user_id, :event_name, :event_date, :event_description)
+      params.require(:ticket).permit(:user_id, :event_name, :event_date, :event_description, :active)
     end
 end
