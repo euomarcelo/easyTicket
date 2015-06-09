@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @pila_pack.name %>
+</p>
+
+<p>
+  <strong>Real value:</strong>
+  <%= @pila_pack.real_value %>
+</p>
+
+<p>
+  <strong>Pila value:</strong>
+  <%= @pila_pack.pila_value %>
+</p>
+
+<%= link_to "Comprar", buy_pila_pack_path(@pila_pack), :class => 'btn btn-default' %>
+<%= link_to 'Edit', edit_pila_pack_path(@pila_pack) %> |
+<%= link_to 'Back', pila_packs_path %>

@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  resources :pila_packs do
+    member do
+      get 'buy'
+    end
+  end
+
   resources :tickets do
     member do
       get 'buy'

@@ -1,0 +1,29 @@
+<%= form_for(@pila_pack) do |f| %>
+  <% if @pila_pack.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@pila_pack.errors.count, "error") %> prohibited this pila_pack from being saved:</h2>
+
+      <ul>
+      <% @pila_pack.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :real_value %><br>
+    <%= f.number_field :real_value %>
+  </div>
+  <div class="field">
+    <%= f.label :pila_value %><br>
+    <%= f.number_field :pila_value %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

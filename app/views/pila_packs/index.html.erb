@@ -1,0 +1,29 @@
+<h1>Listing pila_packs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Real value</th>
+      <th>Pila value</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @pila_packs.each do |pila_pack| %>
+      <tr>
+        <td><%= pila_pack.name %></td>
+        <td><%= pila_pack.real_value / 100 %></td>
+        <td><%= pila_pack.pila_value / 100 %></td>
+        <td><%= link_to 'Show', pila_pack %></td>
+        <td><%= link_to 'Edit', edit_pila_pack_path(pila_pack) %></td>
+        <td><%= link_to 'Destroy', pila_pack, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Pila pack', new_pila_pack_path %>
