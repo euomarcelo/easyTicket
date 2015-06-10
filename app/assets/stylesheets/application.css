@@ -16,9 +16,10 @@
 body {
     margin: 0;
 }
- 
+
 .navbar-static-top {
   background-color: #085394;
+  height: 50px;
   padding: 10px;
 }
 
