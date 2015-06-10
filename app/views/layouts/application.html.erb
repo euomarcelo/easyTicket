@@ -49,6 +49,7 @@
 	            <li><%= link_to "Entrar", new_user_session_path  %></li>
 	            <li><%= link_to "Criar usuário", new_user_registration_path  %></li>
             <% else %>
+              <li><%= link_to "Perfil", current_user %></li>
             	<li><%= link_to "Sair", destroy_user_session_path, method: :delete %></li>
             <% end %>
           </ul>
@@ -68,7 +69,7 @@
               <li class="nav-header">Sidebar</li>
               <li><%= link_to "Ingressos", tickets_path  %></li>
               <li><%= link_to "Comprar Pilas", pila_packs_path  %></li>
-              <li><%= link_to "Link3", "/path3"  %></li>
+              <li><%= link_to "Perfil", current_user  %></li>
             </ul>
           </div><!--/.well -->
         </div><!--/span-->

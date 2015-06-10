@@ -1,4 +1,5 @@
 class PilaPacksController < ApplicationController
+  before_filter :authenticate_user! 
   before_action :set_pila_pack, only: [:show, :edit, :update, :destroy, :buy]
 
   respond_to :html
