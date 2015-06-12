@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @offer.user_id %>
+</p>
+
+<p>
+  <strong>Event name:</strong>
+  <%= @offer.event_name %>
+</p>
+
+<p>
+  <strong>Event date:</strong>
+  <%= @offer.event_date %>
+</p>
+
+<p>
+  <strong>Event description:</strong>
+  <%= @offer.event_description %>
+</p>
+
+<p>
+  <strong>Is active:</strong>
+  <%= @offer.is_active %>
+</p>
+
+<p>
+  <strong>Starting price:</strong>
+  <%= @offer.starting_price %>
+</p>
+
+<p>
+  <strong>Actual price:</strong>
+  <%= @offer.actual_price %>
+</p>
+
+<p>
+  <strong>Expire date:</strong>
+  <%= @offer.expire_date %>
+</p>
+
+<p>
+  <strong>Is auction:</strong>
+  <%= @offer.is_auction %>
+</p>
+
+<%= link_to 'Edit', edit_offer_path(@offer) %> |
+<%= link_to 'Back', offers_path %>

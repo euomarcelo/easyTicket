@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  offer_id: 1
+  paid_value: 1.5
+  is_cancelled: false
+
+two:
+  user_id: 1
+  offer_id: 1
+  paid_value: 1.5
+  is_cancelled: false

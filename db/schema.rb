@@ -11,10 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150612135536) do
+ActiveRecord::Schema.define(version: 20150612204520) do
+
+  create_table "bid_offers", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "offer_id"
+    t.float    "value"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "offers", force: true do |t|
-    t.string   "name"
+    t.integer  "user_id"
+    t.string   "event_name"
+    t.date     "event_date"
+    t.text     "event_description"
+    t.boolean  "is_active"
+    t.float    "starting_price"
+    t.float    "actual_price"
+    t.datetime "expire_date"
+    t.boolean  "is_auction"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -23,6 +39,15 @@ ActiveRecord::Schema.define(version: 20150612135536) do
     t.string   "name"
     t.float    "real_value"
     t.float    "pila_value"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "purchases", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "offer_id"
+    t.float    "paid_value"
+    t.boolean  "is_cancelled"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -52,6 +77,7 @@ ActiveRecord::Schema.define(version: 20150612135536) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.float    "balance"
+    t.boolean  "isModerator"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

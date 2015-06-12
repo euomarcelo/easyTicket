@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :bid_offers
+
+  resources :purchases
+
   resources :pila_packs do
     member do
       get 'buy'

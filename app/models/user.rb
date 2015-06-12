@@ -4,5 +4,8 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
          
-  has_many :tickets
+  has_many :tickets #TOOD excluir isso depois
+  has_many :offers
+  has_many :purchases
+  has_many :bid_offers
 end
