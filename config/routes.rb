@@ -18,7 +18,14 @@ Rails.application.routes.draw do
     end
   end
   
-  resources :offers
+  resources :offers do
+    member do
+      get 'buy'
+    end
+    collection do
+      get 'search'
+    end
+  end
 
   root 'static_pages#home'  
   get 'static_pages/home'
