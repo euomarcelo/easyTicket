@@ -38,7 +38,7 @@ class PilaPacksController < ApplicationController
   end
   
   def buy
-    current_user.decrement(:balance, @pila_pack.real_value)
+    current_user.increment(:balance, @pila_pack.real_value)
     current_user.save
   end
 

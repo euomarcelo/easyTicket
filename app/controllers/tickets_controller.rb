@@ -39,7 +39,7 @@ class TicketsController < ApplicationController
   
   def buy
     @ticket.update_attribute(:active, false)
-    current_user.increment(:balance, @ticket.price)
+    current_user.decrement(:balance, @ticket.price)
     current_user.save
   end
   

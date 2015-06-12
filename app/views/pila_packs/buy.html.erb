@@ -1,0 +1,12 @@
+<%- model_class = Ticket -%>
+<div class="page-header">
+  <h1>Compra de pila efetuada!</h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt><strong>Seu saldo</strong></dt>
+  <dd><%= current_user.balance %></dd>
+</dl>
+
+<%= link_to t('.back', :default => t("helpers.links.back")),
+              tickets_path, :class => 'btn btn-default'  %>

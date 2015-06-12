@@ -1,3 +1,6 @@
 <h2>Olá, <%= @user.email %></h2>
 
 <li><%= link_to "Criar anúncio", new_offer_path  %></li>
+
+<dt><strong>Seu saldo: </strong> <%= current_user.balance%></dt>
+

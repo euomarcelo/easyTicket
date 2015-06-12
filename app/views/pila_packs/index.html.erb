@@ -14,8 +14,8 @@
     <% @pila_packs.each do |pila_pack| %>
       <tr>
         <td><%= pila_pack.name %></td>
-        <td><%= pila_pack.real_value / 100 %></td>
-        <td><%= pila_pack.pila_value / 100 %></td>
+        <td><%= pila_pack.real_value %></td>
+        <td><%= pila_pack.pila_value %></td>
         <td><%= link_to 'Show', pila_pack %></td>
         <td><%= link_to 'Edit', edit_pila_pack_path(pila_pack) %></td>
         <td><%= link_to 'Destroy', pila_pack, method: :delete, data: { confirm: 'Are you sure?' } %></td>
