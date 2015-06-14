@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150612204520) do
+ActiveRecord::Schema.define(version: 20150614215455) do
 
   create_table "bid_offers", force: true do |t|
     t.integer  "user_id"
@@ -78,6 +78,7 @@ ActiveRecord::Schema.define(version: 20150612204520) do
     t.datetime "updated_at"
     t.float    "balance"
     t.boolean  "isModerator"
+    t.string   "username"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
