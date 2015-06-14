@@ -43,7 +43,7 @@
           <input type="search" id="search-tickets">
         </div>
         <div class="user-icons-top">
-            
+
             <ul class="nav navbar-nav">
           	<% if !user_signed_in? %>
 	            <li><%= link_to "Entrar", new_user_session_path  %></li>
@@ -51,6 +51,7 @@
             <% else %>
               <li><%= link_to "Perfil", current_user %></li>
             	<li><%= link_to "Sair", destroy_user_session_path, method: :delete %></li>
+              <li><dt><strong>Seu saldo: </strong> <%= current_user.balance%></dt></li>
             <% end %>
           </ul>
         </div>
