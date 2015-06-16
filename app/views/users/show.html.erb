@@ -1,5 +1,13 @@
-<h2>Olá, <%= @user.username %></h2>
+<h2>Perfil de <%= @user.username %></h2>
+<h5>
+  <% if @user.isModerator %>
+    <%= "Moderador" %>
+  <% end %>
+</h5>
 
 <% if (current_user.id == @user.id) %>
+  <h6>
+    <%= "Este é o seu perfil" %>
+  </h6>
   <%= link_to "Criar anúncio", new_offer_path, :class => 'btn btn-primary' %>
 <% end %>

@@ -5,7 +5,7 @@
         	<button type="submit" class="btn">Buscar</button>
 		<% end %>
 </div>
-<table>
+<table class="table table-striped">
   <thead>
     <tr>
       <th>User</th>
@@ -50,8 +50,20 @@
 					%>
 				</td>
         <td><%= link_to 'Show', offer %></td>
-        <td><%= link_to 'Edit', edit_offer_path(offer) %></td>
-        <td><%= link_to 'Destroy', offer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+					<%=
+						if current_user.isModerator
+							link_to 'Edit', edit_offer_path(offer)
+						end
+					%>
+				</td>
+        <td>
+					<%=
+						if current_user.isModerator
+							link_to 'Destroy', offer, method: :delete, data: { confirm: 'Are you sure?' }
+						end
+					%>
+				</td>
       </tr>
     <% end %>
   </tbody>
@@ -59,4 +71,8 @@
 
 <br>
 
-<%= link_to 'New Offer', new_offer_path %>
+<%=
+	if current_user.isModerator
+		link_to 'New Offer', new_offer_path
+	end
+%>
