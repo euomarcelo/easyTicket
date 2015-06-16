@@ -10,6 +10,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @offers = Offer.find_by(:user_id, params[:id])
 
     respond_to do |format|
         format.html # show.html.erb

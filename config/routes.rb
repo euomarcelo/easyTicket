@@ -17,7 +17,7 @@ Rails.application.routes.draw do
       get 'search'
     end
   end
-  
+
   resources :offers do
     member do
       get 'buy'
@@ -30,7 +30,7 @@ Rails.application.routes.draw do
     end
   end
 
-  root 'static_pages#home'  
+  root 'static_pages#home'
   get 'static_pages/home'
 
   devise_for :users

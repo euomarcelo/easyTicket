@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150614215455) do
+ActiveRecord::Schema.define(version: 20150616172927) do
 
   create_table "bid_offers", force: true do |t|
     t.integer  "user_id"
@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 20150614215455) do
     t.boolean  "is_auction"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "isApproved"
   end
 
   create_table "pila_packs", force: true do |t|

@@ -1,6 +1,9 @@
-<h2>Olá, <%= @user.email %></h2>
+<h2>Olá, <%= @user.username %></h2>
 
-<li><%= link_to "Criar anúncio", new_offer_path  %></li>
+<% if (current_user.id == @user.id) %>
+  <h6>
+    <%= "Este é o seu perfil" %>
+  </h6>
 
-<dt><strong>Seu saldo: </strong> <%= current_user.balance%></dt>
-
+  <%= link_to "Criar anúncio", new_offer_path, :class => 'btn btn-primary' %>
+<% end %>

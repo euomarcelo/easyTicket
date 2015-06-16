@@ -17,8 +17,20 @@
         <td><%= pila_pack.real_value %></td>
         <td><%= pila_pack.pila_value %></td>
         <td><%= link_to 'Show', pila_pack %></td>
-        <td><%= link_to 'Edit', edit_pila_pack_path(pila_pack) %></td>
-        <td><%= link_to 'Destroy', pila_pack, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+          <%=
+            if current_user.isModerator
+              link_to 'Edit', edit_pila_pack_path(pila_pack)
+            end
+          %>
+        </td>
+        <td>
+          <%=
+            if current_user.isModerator
+              link_to 'Destroy', pila_pack, method: :delete, data: { confirm: 'Are you sure?' }
+            end
+          %>
+        </td>
       </tr>
     <% end %>
   </tbody>
@@ -26,4 +38,8 @@
 
 <br>
 
-<%= link_to 'New Pila pack', new_pila_pack_path %>
+<%=
+  if current_user.isModerator
+    link_to 'New Pila pack', new_pila_pack_path
+  end
+%>

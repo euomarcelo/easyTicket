@@ -45,6 +45,11 @@
   <%= @offer.is_auction %>
 </p>
 
+<p>
+  <strong>Is approved:</strong>
+  <%= @offer.isApproved %>
+</p>
+
 <%= link_to 'Edit', edit_offer_path(@offer) %> |
 <%= link_to 'Back', offers_path %>
 <% if @offer.is_auction %>
