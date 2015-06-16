@@ -1,6 +1,6 @@
 class OffersController < ApplicationController
-  before_filter :authenticate_user!
-  before_action :set_offer, only: [:show, :edit, :update, :destroy, :buy]
+  before_filter :authenticate_user! 
+  before_action :set_offer, only: [:show, :edit, :update, :destroy, :buy, :finish_auction]
 
   respond_to :html
 
@@ -36,19 +36,34 @@ class OffersController < ApplicationController
     @offer.destroy
     respond_with(@offer)
   end
-
+  
   def buy
     @offer.update_attribute(:is_active, false)
     current_user.decrement(:balance, @offer.actual_price)
     current_user.save
   end
-
+  
   def search
     @offers = Offer.search(params['name'])
     respond_with(@offers) do |format|
       format.html { render :action => :index }
     end
+    
+  end
 
+  def finish_auction
+    @bid_offers = BidOffer.where("offer_id = ?", @offer.id)
+
+    @better_bid = 0
+
+    @bid_offers.each do |bid_offer|
+      if bid_offer.value > @better_bid
+        @better_bid = bid_offer.value
+      end
+    end
+
+    @offer.update_attribute(:actual_price, @better_bid)
+    @offer.update_attribute(:is_active, false)
   end
 
   private

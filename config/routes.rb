@@ -22,6 +22,9 @@ Rails.application.routes.draw do
     member do
       get 'buy'
     end
+    member do
+      get 'finish_auction'
+    end
     collection do
       get 'search'
     end
@@ -31,7 +34,8 @@ Rails.application.routes.draw do
   get 'static_pages/home'
 
   devise_for :users
-  resources :users, only: [:show]
+  resources :users, only: [:show, :index]
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

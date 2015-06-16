@@ -47,3 +47,6 @@
 
 <%= link_to 'Edit', edit_offer_path(@offer) %> |
 <%= link_to 'Back', offers_path %>
+<% if @offer.is_auction %>
+    <%= link_to 'Arrematar', finish_auction_offer_path %>
+<% end %>

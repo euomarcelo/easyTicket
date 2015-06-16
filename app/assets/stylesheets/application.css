@@ -13,26 +13,75 @@
  *= require_tree .
  *= require_self
  */
-body {
+html, body {
     margin: 0;
+    height: 100%;
+    font-family: Trebuchet MS;
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+    float: left;
+}
+
+.sidebar-nav {
+    float: left;
+    background-color: #DDDDDD;
+    width: 210px;
+    height: 100%;
+}
+
+.sidebar-nav ul {
+    list-style-type: none;
+}
+
+.sidebar-nav ul li {
+    height: 40px;
+    margin-bottom: 5px;
+}
+
+.sidebar-nav ul li a {
+    text-decoration: none;
+    font-family: comic sans ms;
+    color: black;
+}
+
+.sidebar-nav ul li a img {
+    max-height: 40px;
+    vertical-align: text-bottom;
+    margin-right: 7px;
 }
 
 .navbar-static-top {
-  background-color: #085394;
-  height: 50px;
-  padding: 10px;
+    background-color: #085394;
+    height: 30px;
+    padding: 10px;
+}
+
+.content {
+    float: left;
+    padding: 15px;
+}
+
+.content h1 {
+    color: #000000;
+    font-family: comic sans ms;
+    font-size: 25px;
+    font-weight: bold;
+    margin: 10px 0;
 }
 
 .logo {
     float: left;
-    margin: 5px 10px 0;
 }
 
 .logo a {
-    color: #00FFFF;
+    color: #00ffff;
+    font-family: comic sans ms;
+    font-size: 21px;
     font-weight: bold;
     text-decoration: none;
-    font-family: cursive;
 }
 
 .search-bar-top {
@@ -40,8 +89,38 @@ body {
 }
 
 .search-bar-top input {
+    border-radius: 5px;
     float: left;
-    height: 22px;
+    height: 25px;
+    margin-left: 35px;
     opacity: 0.25;
-    width: 550px;
+    width: 630px;
+}
+
+.user-icons-top {
+    float: right;
+}
+
+.user-icons-top ul {
+    list-style-type: none;
+    margin: 5px 0 0;
+}
+
+.user-icons-top ul li {
+    display: inline;
+    margin: 0 10px;
+}
+
+.user-icons-top ul li img {
+    height: 20px;
+}
+
+.user-icons-top ul li span {
+    color: #fff;
+    font-family: comic sans ms;
+}
+
+.nav-list {
+    float: left;
+
 }
