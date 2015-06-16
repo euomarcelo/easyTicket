@@ -11,14 +11,11 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :user_id %><br>
-    <%= f.number_field :user_id %>
-  </div>
-  <div class="field">
-    <%= f.label :offer_id %><br>
-    <%= f.number_field :offer_id %>
-  </div>
+
+    <%= f.hidden_field :user_id %>
+
+    <%= f.hidden_field :offer_id %>
+
   <div class="field">
     <%= f.label :value %><br>
     <%= f.text_field :value %>
