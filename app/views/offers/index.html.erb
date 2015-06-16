@@ -1,10 +1,10 @@
 <h1>Listing offers</h1>
 <div class="col-lg-3">
-			<%= form_tag search_offers_path, {:method => :get, :class => "form-search pull-right" } do %>									    	
-	        	<input name="name" type="text" class="search-query">
-	        	<button type="submit" class="btn">Buscar</button>		    
-			<% end %>
-		</div>
+		<%= form_tag search_offers_path, {:method => :get, :class => "form-search pull-right" } do %>
+        	<input name="name" type="text" class="search-query">
+        	<button type="submit" class="btn">Buscar</button>
+		<% end %>
+</div>
 <table>
   <thead>
     <tr>
@@ -36,12 +36,19 @@
         <td>
           <%=
             if offer.is_auction
-              link_to "Arrematar", new_bid_offer_path(:offer => offer), :class => 'btn btn-default' 
-            else 
-              link_to "Comprar", buy_offer_path(offer), :class => 'btn btn-default' 
+              link_to "Arrematar", new_bid_offer_path(:offer => offer), :class => 'btn btn-default'
+            else
+              link_to "Comprar", buy_offer_path(offer), :class => 'btn btn-default'
             end
             %>
           </td>
+				<td>
+					<%=
+					 	if current_user.isModerator
+							link_to 'Aprovar', offer, method: :approve
+						end
+					%>
+				</td>
         <td><%= link_to 'Show', offer %></td>
         <td><%= link_to 'Edit', edit_offer_path(offer) %></td>
         <td><%= link_to 'Destroy', offer, method: :delete, data: { confirm: 'Are you sure?' } %></td>

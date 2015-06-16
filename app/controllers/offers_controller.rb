@@ -15,6 +15,7 @@ class OffersController < ApplicationController
 
   def new
     @offer = Offer.new
+    @offer.update_attribute(:isApproved, false)
     respond_with(@offer)
   end
 
@@ -41,6 +42,10 @@ class OffersController < ApplicationController
     @offer.update_attribute(:is_active, false)
     current_user.decrement(:balance, @offer.actual_price)
     current_user.save
+  end
+
+  def approve
+    @offer.update_attribute(:is_approved, true)
   end
 
   def search
