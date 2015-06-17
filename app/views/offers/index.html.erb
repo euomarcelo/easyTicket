@@ -34,6 +34,13 @@
 	        <td><%= offer.actual_price %></td>
 	        <td><%= offer.expire_date %></td>
 	        <td><%= offer.is_auction %></td>
+					<td>
+						<%=
+						 	if current_user.isModerator
+								link_to 'Aprovar', offer, method: :approve
+							end
+						%>
+					</td>
 	        <td><%= link_to "Comprar", buy_offer_path(offer), :class => 'btn btn-default' %></td>
 	        <td><%= link_to 'Show', offer %></td>
 	        <td>
