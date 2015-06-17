@@ -43,44 +43,50 @@
           <input type="search" id="search-tickets">
         </div>
         <div class="user-icons-top">
-
+            
             <ul class="nav navbar-nav">
           	<% if !user_signed_in? %>
 	            <li><%= link_to "Entrar", new_user_session_path  %></li>
 	            <li><%= link_to "Criar usuário", new_user_registration_path  %></li>
             <% else %>
-              <li><%= link_to "Perfil", current_user %></li>
-            	<li><%= link_to "Sair", destroy_user_session_path, method: :delete %></li>
-              <li><dt><strong>Seu saldo: </strong> <%= current_user.balance%></dt></li>
+                  <li><img src="/assets/squares.png"></li>
+                  <li><img src="/assets/clock.png"></li>
+                  <li><img src="/assets/profile-icon.png"></li>
+                  <li><span><%= current_user.email %></span></li>
+                  <li><img src="/assets/arrow-down.png"></li>
+            	  <li><%= link_to "Sair", destroy_user_session_path, method: :delete %></li>
             <% end %>
           </ul>
         </div>
     </div>
 
     <div class="container">
-      <div class="row">
-        <div class="col-lg-9">
-          <%= bootstrap_flash %>
-          <%= yield %>
-        </div>
-        <div class="col-lg-3">
-          <div class="well sidebar-nav">
-            <h3>Sidebar</h3>
-            <ul class="nav nav-list">
-              <li class="nav-header">Sidebar</li>
-              <li><%= link_to "Ingressos", offers_path  %></li>
-              <li><%= link_to "Comprar Pilas", pila_packs_path  %></li>
-              <li><%= link_to "Perfil", current_user  %></li>
-            </ul>
-          </div><!--/.well -->
-        </div><!--/span-->
-      </div><!--/row-->
+      <div class="sidebar-nav">
+        <ul class="nav-list">
+          <% if user_signed_in? %>
+          <li>
+            <%= link_to image_tag('users-menu.png') + "Usuários", url_for({:controller => 'users', :action => 'index'}) %>
+          </li>
+          <li>
+            <%= link_to image_tag('tickets-menu.png') + "Ingressos", url_for({:controller => 'offers', :action => 'index'}) %>
+          </li>
+          <li>
+            <%= link_to image_tag('agenda-menu.png') + "Agenda", url_for({:controller => 'offers', :action => 'index'}) %>
+          </li>
+          <li>
+            <%= link_to image_tag('pilas-menu.png') + "Pilas", url_for({:controller => 'pila_packs', :action => 'index'}) %>
+          </li>
+          <li>
+            <%= link_to image_tag('email-menu.png') + "Email", url_for({:controller => 'offers', :action => 'index'}) %>
+          </li>
+          <% end %>
+        </ul>
+      </div><!--/.well -->
 
-      <footer>
-        <p>&copy; Company 2015</p>
-      </footer>
-
-    </div> <!-- /container -->
+      <div class="content">
+        <%= yield %>
+      </div>
+    </div>
 
   </body>
 </html>

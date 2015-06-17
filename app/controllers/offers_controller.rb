@@ -53,7 +53,22 @@ class OffersController < ApplicationController
     respond_with(@offers) do |format|
       format.html { render :action => :index }
     end
+    
+  end
 
+  def finish_auction
+    @bid_offers = BidOffer.where("offer_id = ?", @offer.id)
+
+    @better_bid = 0
+
+    @bid_offers.each do |bid_offer|
+      if bid_offer.value > @better_bid
+        @better_bid = bid_offer.value
+      end
+    end
+
+    @offer.update_attribute(:actual_price, @better_bid)
+    @offer.update_attribute(:is_active, false)
   end
 
   private

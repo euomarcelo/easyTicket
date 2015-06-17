@@ -33,37 +33,10 @@
         <td><%= offer.actual_price %></td>
         <td><%= offer.expire_date %></td>
         <td><%= offer.is_auction %></td>
-        <td>
-          <%=
-            if offer.is_auction
-              link_to "Arrematar", new_bid_offer_path(:offer => offer), :class => 'btn btn-default'
-            else
-              link_to "Comprar", buy_offer_path(offer), :class => 'btn btn-default'
-            end
-            %>
-          </td>
-				<td>
-					<%=
-					 	if current_user.isModerator
-							link_to 'Aprovar', offer, method: :approve
-						end
-					%>
-				</td>
+        <td><%= link_to "Comprar", buy_offer_path(offer), :class => 'btn btn-default' %></td>
         <td><%= link_to 'Show', offer %></td>
-        <td>
-					<%=
-						if current_user.isModerator
-							link_to 'Edit', edit_offer_path(offer)
-						end
-					%>
-				</td>
-        <td>
-					<%=
-						if current_user.isModerator
-							link_to 'Destroy', offer, method: :delete, data: { confirm: 'Are you sure?' }
-						end
-					%>
-				</td>
+        <td><%= link_to 'Edit', edit_offer_path(offer) %></td>
+        <td><%= link_to 'Destroy', offer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -71,8 +44,4 @@
 
 <br>
 
-<%=
-	if current_user.isModerator
-		link_to 'New Offer', new_offer_path
-	end
-%>
+<%= link_to 'New Offer', new_offer_path %>

@@ -1,5 +1,4 @@
 class BidOffersController < ApplicationController
-  before_filter :authenticate_user!
   before_action :set_bid_offer, only: [:show, :edit, :update, :destroy]
 
   respond_to :html
@@ -14,11 +13,8 @@ class BidOffersController < ApplicationController
   end
 
   def new
-    @bid_offer = BidOffer.new
-    @bid_offer.offer_id = params[:offer]
-    @bid_offer.user_id = current_user.id
-    
-    
+    @offer = BidOffer.find(params[:offer])
+    @bid_offer = BidOffer.new()
     respond_with(@bid_offer)
   end
 
@@ -27,18 +23,8 @@ class BidOffersController < ApplicationController
 
   def create
     @bid_offer = BidOffer.new(bid_offer_params)
-    
-    
-    @offer = Offer.find(@bid_offer.offer_id)
-    if @bid_offer.value <= @offer.actual_price
-      redirect_to offers_url
-    else
-      @offer.update_attribute(:actual_price, @bid_offer.value)
-      @user = User.find(@bid_offer.user_id)
-      @user.update_attribute(:balance, @user.balance - @bid_offer.value)
-      @bid_offer.save
-      respond_with(@bid_offer)
-    end
+    @bid_offer.save
+    respond_with(@bid_offer)
   end
 
   def update
@@ -57,6 +43,6 @@ class BidOffersController < ApplicationController
     end
 
     def bid_offer_params
-      params.require(:bid_offer).permit(:user_id, :offer_id, :value )
+      params.require(:bid_offer).permit(:user_id, :offer_id, :value)
     end
 end
