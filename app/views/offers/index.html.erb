@@ -23,29 +23,31 @@
 
   <tbody>
     <% @offers.each do |offer| %>
-      <tr>
-        <td><%= offer.user_id %></td>
-        <td><%= offer.event_name %></td>
-        <td><%= offer.event_date %></td>
-        <td><%= offer.event_description %></td>
-        <td><%= offer.is_active %></td>
-        <td><%= offer.starting_price %></td>
-        <td><%= offer.actual_price %></td>
-        <td><%= offer.expire_date %></td>
-        <td><%= offer.is_auction %></td>
-        <td><%= link_to "Comprar", buy_offer_path(offer), :class => 'btn btn-default' %></td>
-        <td><%= link_to 'Show', offer %></td>
-        <td>
-					<% if current_user.isModerator %>
-						<%= link_to 'Edit', edit_offer_path(offer) %>
-					<% end %>
-				</td>
-        <td>
-					<% if current_user.isModerator %>
-						<%= link_to 'Destroy', offer, method: :delete, data: { confirm: 'Are you sure?' } %>
-					<% end %>
-				</td>
-      </tr>
+			<% if offer.is_active %>
+	      <tr>
+	        <td><%= offer.user_id %></td>
+	        <td><%= offer.event_name %></td>
+	        <td><%= offer.event_date %></td>
+	        <td><%= offer.event_description %></td>
+	        <td><%= offer.is_active %></td>
+	        <td><%= offer.starting_price %></td>
+	        <td><%= offer.actual_price %></td>
+	        <td><%= offer.expire_date %></td>
+	        <td><%= offer.is_auction %></td>
+	        <td><%= link_to "Comprar", buy_offer_path(offer), :class => 'btn btn-default' %></td>
+	        <td><%= link_to 'Show', offer %></td>
+	        <td>
+						<% if current_user.isModerator %>
+							<%= link_to 'Edit', edit_offer_path(offer) %>
+						<% end %>
+					</td>
+	        <td>
+						<% if current_user.isModerator %>
+							<%= link_to 'Destroy', offer, method: :delete, data: { confirm: 'Are you sure?' } %>
+						<% end %>
+					</td>
+	      </tr>
+			<% end %>
     <% end %>
   </tbody>
 </table>

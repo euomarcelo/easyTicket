@@ -53,11 +53,11 @@ class OffersController < ApplicationController
     respond_with(@offers) do |format|
       format.html { render :action => :index }
     end
-    
+
   end
 
   def finish_auction
-    @bid_offers = BidOffer.where("offer_id = ?", @offer.id)
+    @bid_offers = BidOffer.where(:offer_id => @offer.id)
 
     @better_bid = 0
 
