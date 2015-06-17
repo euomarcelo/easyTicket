@@ -43,7 +43,7 @@
           <input type="search" id="search-tickets">
         </div>
         <div class="user-icons-top">
-            
+
             <ul class="nav navbar-nav">
           	<% if !user_signed_in? %>
 	            <li><%= link_to "Entrar", new_user_session_path  %></li>
@@ -51,7 +51,7 @@
             <% else %>
                   <li><img src="/assets/squares.png"></li>
                   <li><img src="/assets/clock.png"></li>
-                  <li><img src="/assets/profile-icon.png"></li>
+                  <li><%= link_to image_tag("profile-icon.png"), current_user %></li>
                   <li><span><%= current_user.email %></span></li>
                   <li><img src="/assets/arrow-down.png"></li>
             	  <li><%= link_to "Sair", destroy_user_session_path, method: :delete %></li>
