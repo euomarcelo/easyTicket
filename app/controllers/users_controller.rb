@@ -10,7 +10,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @offers = Offer.find_by(:user_id, params[:id])
+    @offers = Offer.where(:user_id => params[:id])
+    @messages = Message.where(:userReceive => params[:id])
 
     respond_to do |format|
         format.html # show.html.erb
