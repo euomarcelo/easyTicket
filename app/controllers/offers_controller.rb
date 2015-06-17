@@ -57,6 +57,7 @@ class OffersController < ApplicationController
   end
 
   def finish_auction
+    @offer = Offer.find(params[:id])
     @bid_offers = BidOffer.where(:offer_id => @offer.id)
 
     @better_bid = 0
