@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  userSent: 1
+  userReceive: 1
+  message: MyString
+  createdAt: 2015-06-16 19:45:44
+
+two:
+  userSent: 1
+  userReceive: 1
+  message: MyString
+  createdAt: 2015-06-16 19:45:44
