@@ -13,7 +13,7 @@ class BidOffersController < ApplicationController
   end
 
   def new
-    @offer = BidOffer.find(params[:offer])
+    @offer = Offer.find(params[:offer])
     @bid_offer = BidOffer.new()
     respond_with(@bid_offer)
   end

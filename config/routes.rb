@@ -27,6 +27,9 @@ Rails.application.routes.draw do
     member do
       get 'finish_auction'
     end
+    member do
+      get 'approve'
+    end
     collection do
       get 'search'
     end

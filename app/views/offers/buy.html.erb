@@ -14,8 +14,10 @@
   <dd><%= @offer.event_description %></dd>
   <dt><strong><%= model_class.human_attribute_name(:is_active) %>:</strong></dt>
   <dd><%= @offer.is_active %></dd>
-  <dt><strong>Seu saldo</strong></dt>
-  <dd><%= current_user.balance %></dd>
+  <% if !@offer.is_auction %>
+    <dt><strong>Seu saldo</strong></dt>
+    <dd><%= current_user.balance %></dd>
+  <% end %>
 </dl>
 
 <%= link_to t('.back', :default => t("helpers.links.back")),
