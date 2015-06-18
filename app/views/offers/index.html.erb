@@ -1,4 +1,5 @@
-<h1>Listing offers</h1>
+<%- model_class = Offer -%>
+<h1>Listando ofertas</h1>
 <div class="col-lg-3">
 		<%= form_tag search_offers_path, {:method => :get, :class => "form-search pull-right" } do %>
         	<input name="name" type="text" class="search-query">
@@ -8,15 +9,15 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th>User</th>
-      <th>Event name</th>
-      <th>Event date</th>
-      <th>Event description</th>
-      <th>Is active</th>
-      <th>Starting price</th>
-      <th>Actual price</th>
-      <th>Expire date</th>
-      <th>Is auction</th>
+      <th><%= model_class.human_attribute_name(:user_id) %></th>
+      <th><%= model_class.human_attribute_name(:event_name) %></th>
+      <th><%= model_class.human_attribute_name(:event_date) %></th>
+      <th><%= model_class.human_attribute_name(:event_description) %></th>
+      <th><%= model_class.human_attribute_name(:is_active) %></th>
+      <th><%= model_class.human_attribute_name(:starting_price) %></th>
+      <th><%= model_class.human_attribute_name(:actual_price) %></th>
+      <th><%= model_class.human_attribute_name(:expire_date) %></th>
+      <th><%= model_class.human_attribute_name(:is_auction) %></th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -27,13 +28,13 @@
 	      <tr>
 	        <td><%= offer.user_id %></td>
 	        <td><%= offer.event_name %></td>
-	        <td><%= offer.event_date %></td>
+	        <td><%= l offer.event_date, :format => "%d/%m/%Y"  %></td>
 	        <td><%= offer.event_description %></td>
-	        <td><%= offer.is_active %></td>
+	        <td><%= offer.is_active?? "Ativo" : "Inativo" %></td>
 	        <td><%= offer.starting_price %></td>
 	        <td><%= offer.actual_price %></td>
-	        <td><%= offer.expire_date %></td>
-	        <td><%= offer.is_auction %></td>
+	        <td><%= l offer.expire_date, :format => "%d/%m/%Y" %></td>
+	        <td><%= offer.is_auction?? "Sim" : "Não" %></td>
 					<td>
 						<%=
 						 	if current_user.isModerator
@@ -42,15 +43,15 @@
 						%>
 					</td>
 	        <td><%= link_to "Comprar", buy_offer_path(offer), :class => 'btn btn-default' %></td>
-	        <td><%= link_to 'Show', offer %></td>
+	        <td><%= link_to 'Mostrar', offer %></td>
 	        <td>
 						<% if current_user.isModerator %>
-							<%= link_to 'Edit', edit_offer_path(offer) %>
+							<%= link_to 'Editar', edit_offer_path(offer) %>
 						<% end %>
 					</td>
 	        <td>
 						<% if current_user.isModerator %>
-							<%= link_to 'Destroy', offer, method: :delete, data: { confirm: 'Are you sure?' } %>
+							<%= link_to 'Excluir', offer, method: :delete, data: { confirm: 'Are you sure?' } %>
 						<% end %>
 					</td>
 	      </tr>
@@ -60,4 +61,4 @@
 </table>
 
 <br>
-<%= link_to 'New Offer', new_offer_path %>
+<%= link_to 'Nova oferta', new_offer_path %>

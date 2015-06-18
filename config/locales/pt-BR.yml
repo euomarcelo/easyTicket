@@ -223,3 +223,13 @@ pt-BR:
         event_name: Nome do evento
         event_date: Data
         event_description: Descrição 
+      offer:
+        user_id: Id do usuário
+        event_name: Nome do evento
+        event_date: Data
+        event_description: Descrição do evento
+        is_active: Está ativo?
+        starting_price: Preço inicial
+        actual_price: Preço real
+        expire_date: Data final
+        is_auction: É leilão?
