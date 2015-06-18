@@ -1,5 +1,8 @@
 <%- model_class = Offer -%>
 <h1>Listando ofertas</h1>
+
+<p id="alert"><%= alert %></p>
+
 <div class="col-lg-3">
 		<%= form_tag search_offers_path, {:method => :get, :class => "form-search pull-right" } do %>
         	<input name="name" type="text" class="search-query">
