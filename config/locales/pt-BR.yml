@@ -230,6 +230,6 @@ pt-BR:
         event_description: Descrição do evento
         is_active: Está ativo?
         starting_price: Preço inicial
-        actual_price: Preço real
+        actual_price: Preço atual
         expire_date: Data final
         is_auction: É leilão?
