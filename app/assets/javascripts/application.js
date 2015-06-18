@@ -18,7 +18,6 @@
 
 $(document).ready(function() {
     $('#userSettings').click(function() {
-        alert('jofs');
         if($('#user_configurations').is(':visible'))
             $('#user_configurations').fadeOut();
         else
