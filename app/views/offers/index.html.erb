@@ -44,13 +44,11 @@
 							end
 						%>
 					</td>
-					<td>
-					<%= if offer.is_auction
-
-					  else
-					  	link_to "Comprar", buy_offer_path(offer), :class => 'btn btn-default'
-						end %>
-	        </td>
+            <% if (offer.is_auction) %>
+                <td><%= link_to "Dar lance", new_bid_offer_path(:offer => offer), :class => 'btn btn-default' %></td>
+            <% else %>
+	            <td><%= link_to "Comprar", buy_offer_path(offer), :class => 'btn btn-default' %></td>
+            <% end %>
 	        <td><%= link_to 'Mostrar', offer %></td>
 	        <td>
 						<% if current_user.isModerator %>
