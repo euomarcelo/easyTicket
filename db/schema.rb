@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150616223450) do
+ActiveRecord::Schema.define(version: 20150618135031) do
 
   create_table "bid_offers", force: true do |t|
     t.integer  "user_id"
@@ -84,9 +84,9 @@ ActiveRecord::Schema.define(version: 20150616223450) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.float    "balance",                default: 0.0, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.float    "balance",                default: 0.0
     t.boolean  "isModerator"
     t.string   "username"
   end

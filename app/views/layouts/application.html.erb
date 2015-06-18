@@ -55,13 +55,10 @@
                   <li><img src="/assets/clock.png"></li>
                   <li><%= link_to image_tag("profile-icon.png"), current_user %></li>
                   <li><span><%= current_user.username %></span></li>
-                  <li><img id="userSettings" src="/assets/arrow-down.png"></li>
 
-                  <div id="user_configurations">
-                    Seu saldo: <%= current_user.balance %><br><br>
-                    <%= link_to "Configurações", current_user %><br>
-                    <%= link_to "Sair", destroy_user_session_path, method: :delete %>
-                  </div>
+                  <li>Seu saldo: <%= current_user.balance %></li>
+                  <li><%= link_to "Configurações", current_user %></li>
+                  <li><%= link_to "Sair", destroy_user_session_path, method: :delete %></li>
             <% end %>
           </ul>
         </div>
