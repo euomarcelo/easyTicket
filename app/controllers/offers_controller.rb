@@ -47,9 +47,12 @@ class OffersController < ApplicationController
   def buy
     current_user.balance -= @offer.actual_price
     @offer.is_active = false
+    @offerOwner = User.find(@offer.user_id)
+    @offerOwner.balance += @offer.actual_price * 0.8
     begin
       ActiveRecord::Base.transaction do
         current_user.save!
+        @offerOwner.save!
         @offer.save!
       end
     rescue

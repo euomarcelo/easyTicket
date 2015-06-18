@@ -45,7 +45,7 @@
 						%>
 					</td>
 					<td>
-					<% if offer.is_auction
+					<%= if offer.is_auction
 
 					  else
 					  	link_to "Comprar", buy_offer_path(offer), :class => 'btn btn-default'
