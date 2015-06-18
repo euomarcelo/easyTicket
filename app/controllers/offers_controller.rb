@@ -1,11 +1,17 @@
 class OffersController < ApplicationController
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, :except => [:show_all]
   before_action :set_offer, only: [:show, :edit, :update, :destroy, :buy]
 
   respond_to :html
 
   def index
     @offers = Offer.all
+    respond_with(@offers)
+  end
+
+  def show_all
+    @offers = Offer.limit(5).order('event_date asc')
+    #@response = {:offers => @offers, :featuredOffers => @featuredOffers}
     respond_with(@offers)
   end
 

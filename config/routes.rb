@@ -32,8 +32,8 @@ Rails.application.routes.draw do
     end
   end
 
-  root 'static_pages#home'
-  get 'static_pages/home'
+  root 'offers#show_all'
+  get 'offers/show_all'
 
   devise_for :users
   resources :users, only: [:show, :index]

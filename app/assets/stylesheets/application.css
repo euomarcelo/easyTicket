@@ -19,6 +19,11 @@ html, body {
     font-family: Trebuchet MS;
 }
 
+html, body a {
+    text-decoration: none;
+    color: black;
+}
+
 .container {
     width: 100%;
     height: 100%;
@@ -59,9 +64,106 @@ html, body {
     padding: 10px;
 }
 
+.navbar-static-top a {
+    color: white;
+    text-decoration: none;
+}
+
+#userSettings {
+    cursor: pointer;
+}
+
+#user_configurations {
+    background-image: url("settings-background.png");
+    background-size: 245px 134px;
+    float: left;
+    height: 41px;
+    padding: 47px 21px;
+    position: absolute;
+    right: 10px;
+    width: 204px;
+    display: none;
+}
+
 .content {
     float: left;
     padding: 15px;
+}
+
+.featuredEvents {
+    float: left;
+    height: 276px;
+    margin: -15px;
+    position: absolute;
+    width: 100%;
+    background: #eeeeee; /* Old browsers */
+    background: -moz-linear-gradient(top, #eeeeee 0%, #cccccc 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#eeeeee), color-stop(100%,#cccccc)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #eeeeee 0%,#cccccc 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, #eeeeee 0%,#cccccc 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, #eeeeee 0%,#cccccc 100%); /* IE10+ */
+    background: linear-gradient(to bottom, #eeeeee 0%,#cccccc 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eeeeee', endColorstr='#cccccc',GradientType=0 );
+}
+
+.featuredEvents h2 {
+    margin-left: 10px;
+    text-transform: uppercase;
+}
+
+.event {
+    float: left;
+    width: 200px;
+    margin-top: 22px;
+    border: 1px solid #E8E8EA;
+    border-radius: 8px;
+    padding: 10px;
+    height: 221px;
+
+    /*Background*/
+    background: #eeeeee; /* Old browsers */
+    background: -moz-linear-gradient(top, #eeeeee 0%, #cccccc 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#eeeeee), color-stop(100%,#cccccc)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #eeeeee 0%,#cccccc 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, #eeeeee 0%,#cccccc 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, #eeeeee 0%,#cccccc 100%); /* IE10+ */
+    background: linear-gradient(to bottom, #eeeeee 0%,#cccccc 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eeeeee', endColorstr='#cccccc',GradientType=0 );
+}
+
+.buyTicketButton {
+    border-radius: 5px;
+    float: left;
+    padding: 5px;
+    text-align: center;
+    width: 190px;
+    text-transform: uppercase;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 6px;
+
+    background: #299a0b; /* Old browsers */
+    background: -moz-linear-gradient(top, #299a0b 0%, #299a0b 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#299a0b), color-stop(100%,#299a0b)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #299a0b 0%,#299a0b 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, #299a0b 0%,#299a0b 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, #299a0b 0%,#299a0b 100%); /* IE10+ */
+    background: linear-gradient(to bottom, #299a0b 0%,#299a0b 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#299a0b', endColorstr='#299a0b',GradientType=0 );
+}
+
+.event img {
+    float: left;
+    margin-bottom: 8px;
+    margin-left: 30px;
+    width: 140px;
+}
+
+.event span {
+    width: 200px;
+    float: left;
+    text-align: center;
 }
 
 .content h1 {
@@ -118,6 +220,7 @@ html, body {
 .user-icons-top ul li span {
     color: #fff;
     font-family: comic sans ms;
+    vertical-align: text-bottom;
 }
 
 .nav-list {

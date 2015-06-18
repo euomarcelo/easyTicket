@@ -1,0 +1,17 @@
+<%- model_class = Offer -%>
+
+    <h2>Próximos Eventos</h2>
+
+
+    <% @offers.each do |offer| %>
+        <% if offer.is_active %>
+            <div class="event">
+              <img src="/assets/no-image.jpg">
+              <span><%= offer.event_name %></span>
+              <span><%= offer.event_date.to_time.strftime('%d/%m - %l:%M') %></span>
+              <%= link_to(buy_offer_path(offer)) do %>
+                  <div class="buyTicketButton">Comprar</div>
+              <% end %>
+            </div>
+        <% end %>
+    <% end %>

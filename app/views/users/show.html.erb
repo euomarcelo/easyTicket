@@ -1,9 +1,6 @@
 <h2>Olá, <%= @user.username %></h2>
 
 <% if (current_user.id == @user.id) %>
-  <h6>
-    <%= "Este é o seu perfil" %>
-  </h6>
 
   <%= "Seus anúncios:" %>
   <table class="table table-striped">
@@ -21,7 +18,7 @@
         <tr>
           <td><%= offer.event_name %></td>
           <td><%= offer.starting_price %></td>
-          <td><%= offer.expire_date %></td>
+          <td><%= offer.expire_date.to_time.strftime('%d/%m/%Y') %></td>
           <td><%= link_to 'Show', offer %></td>
   				<td><%= link_to 'Edit', edit_offer_path(offer) %></td>
           <td><%= link_to 'Destroy', offer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
