@@ -58,7 +58,9 @@ class OffersController < ApplicationController
   end
 
   def approve
-    @offer.update_attribute(:is_approved, true)
+    @offer = Offer.find(params[:id])
+    @offer.update_attribute(:isApproved, true)
+    redirect_to offers_path
   end
 
   def search
