@@ -49,7 +49,6 @@
 	            <li><%= link_to "Entrar", new_user_session_path  %></li>
 	            <li><%= link_to "Criar usuário", new_user_registration_path  %></li>
             <% else %>
-                  <li>Seu saldo: <%= current_user.balance %></li>
                   <li><img src="/assets/squares.png"></li>
                   <li><img src="/assets/clock.png"></li>
                   <li><%= link_to image_tag("profile-icon.png"), current_user %></li>
@@ -78,7 +77,7 @@
             <%= link_to image_tag('pilas-menu.png') + "Pilas", url_for({:controller => 'pila_packs', :action => 'index'}) %>
           </li>
           <li>
-            <%= link_to image_tag('email-menu.png') + "Email", url_for({:controller => 'offers', :action => 'index'}) %>
+            <%= link_to image_tag('email-menu.png') + "Email", url_for(offer_report_path) %>
           </li>
           <% end %>
         </ul>

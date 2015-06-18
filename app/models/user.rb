@@ -8,6 +8,4 @@ class User < ActiveRecord::Base
   has_many :offers
   has_many :purchases
   has_many :bid_offers
-  
-  validates :balance, :numericality => { :greater_than_or_equal_to => 0 }
 end

@@ -39,16 +39,9 @@ class OffersController < ApplicationController
   end
 
   def buy
-    current_user.balance -= @offer.actual_price
-    @offer.is_active = false
-    begin 
-      ActiveRecord::Base.transaction do      
-        current_user.save!
-        @offer.save!
-      end
-    rescue
-      redirect_to offers_path, alert: "Saldo insuficiente"
-    end
+    @offer.update_attribute(:is_active, false)
+    current_user.decrement(:balance, @offer.actual_price)
+    current_user.save
   end
 
   def approve
@@ -60,12 +53,11 @@ class OffersController < ApplicationController
     respond_with(@offers) do |format|
       format.html { render :action => :index }
     end
-
+    
   end
 
   def finish_auction
-    @offer = Offer.find(params[:id])
-    @bid_offers = BidOffer.where(:offer_id => @offer.id)
+    @bid_offers = BidOffer.where("offer_id = ?", @offer.id)
 
     @better_bid = 0
 
@@ -77,6 +69,11 @@ class OffersController < ApplicationController
 
     @offer.update_attribute(:actual_price, @better_bid)
     @offer.update_attribute(:is_active, false)
+  end
+
+  def report
+    report = UserReport.new
+    render template: 'dossier/reports/show', locals: {report: report.run}
   end
 
   private

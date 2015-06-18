@@ -55,8 +55,17 @@ GEM
       responders
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
+    dossier (2.12.2)
+      actionmailer (>= 3.2)
+      actionpack (>= 3.2)
+      activesupport (>= 3.2)
+      arel (>= 3.0)
+      haml (>= 3.1)
+      railties (>= 3.2)
     erubis (2.7.0)
     execjs (2.5.2)
+    haml (4.0.6)
+      tilt
     hike (1.2.3)
     i18n (0.7.0)
     jbuilder (2.2.13)
@@ -145,6 +154,7 @@ DEPENDENCIES
   bcrypt (~> 3.1.7)
   coffee-rails (~> 4.0.0)
   devise
+  dossier (~> 2.12.2)
   jbuilder (~> 2.0)
   jquery-rails
   less-rails
