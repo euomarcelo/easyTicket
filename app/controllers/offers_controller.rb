@@ -39,9 +39,16 @@ class OffersController < ApplicationController
   end
 
   def buy
-    @offer.update_attribute(:is_active, false)
-    current_user.decrement(:balance, @offer.actual_price)
-    current_user.save
+    current_user.balance -= @offer.actual_price
+    @offer.is_active = false
+    begin 
+      ActiveRecord::Base.transaction do      
+        current_user.save!
+        @offer.save!
+      end
+    rescue
+      redirect_to offers_path, alert: "Saldo insuficiente"
+    end
   end
 
   def approve
