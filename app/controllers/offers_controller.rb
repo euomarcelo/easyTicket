@@ -78,23 +78,27 @@ class OffersController < ApplicationController
     @offer = Offer.find(params[:id])
     @bid_offers = BidOffer.where(:offer_id => @offer.id)
 
-    @better_bid = 0
-    @winner = nil;
-
-    @bid_offers.each do |bid_offer|
-      if bid_offer.value > @better_bid
-        @better_bid = bid_offer.value
-        @winner = bid_offer
-      end
-    end
-
-    @offer.update_attribute(:actual_price, @better_bid)
+    #@offer.update_attribute(:actual_price, @better_bid)
     @offer.update_attribute(:is_active, false)
+    
+    @offerOwner = User.find(@offer.user_id)
+    @offerOwner.balance += @offer.actual_price * 0.8
+    @offerOwner.save
+    
+    #@better_bid = 0
+    #@winner = nil;
 
-    @user = User.find(@winner.user_id)
+    #@bid_offers.each do |bid_offer|
+    #  if bid_offer.value > @better_bid
+    #    @better_bid = bid_offer.value
+    #    @winner = bid_offer
+    #  end
+    #end
 
-    @user.balance -= @offer.actual_price
-    @user.save
+    #@user = User.find(@winner.user_id)
+
+    #@user.balance -= @offer.actual_price
+    #@user.save
   end
 
   def report

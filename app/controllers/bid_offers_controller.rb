@@ -23,8 +23,18 @@ class BidOffersController < ApplicationController
 
   def create
     @bid_offer = BidOffer.new(bid_offer_params)
-    @bid_offer.save
-    respond_with(@bid_offer)
+    
+    
+    @offer = Offer.find(@bid_offer.offer_id)
+    if @bid_offer.value <= @offer.actual_price
+      redirect_to offers_url
+    else
+      @offer.update_attribute(:actual_price, @bid_offer.value)
+      @user = User.find(@bid_offer.user_id)
+      @user.update_attribute(:balance, @user.balance - @bid_offer.value)
+      @bid_offer.save
+      respond_with(@bid_offer)
+    end
   end
 
   def update
